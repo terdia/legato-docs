@@ -1,5 +1,3 @@
-# Legato Console
-
 Legato console is built on to of Symfony console, providing some useful commands out of the box, see all available commands simply type: 
 
 `php Legato list`

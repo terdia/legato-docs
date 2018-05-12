@@ -1,5 +1,3 @@
-# Controllers
-
 The controller is generally responsible for performing a request action.
 
 ## Creating a Controller

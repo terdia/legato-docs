@@ -1,5 +1,3 @@
-# Database
-
 The legato framework makes it easy for you to connect and manipulate database 
 content via support for illuminate database package out of the box.
 

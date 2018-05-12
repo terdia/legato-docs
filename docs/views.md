@@ -1,5 +1,3 @@
-# Views
-
 Legato framework supports two main templating engine out of the box: 
 
 1. Twig and 
