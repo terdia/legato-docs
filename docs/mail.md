@@ -1,5 +1,3 @@
-# Sending Mail
-
 The Legato framework provides support for email sending using SMTP (Gmail, Mailgun, etc,) and Mailgun API. The Legato Mail class is built on top of Swiftmailer library.
 
 ### SMTP Setup

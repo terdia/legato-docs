@@ -1,5 +1,3 @@
-# Model
-
 Legato Model are based solely on Laravel Eloquent ORM.
 
 ## Creating a Model

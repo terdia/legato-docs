@@ -1,5 +1,3 @@
-# Routing
-
 Legato Framework router is a simple implementation of Nikic FastRoute use 
 for routing HTTP Request. 
 

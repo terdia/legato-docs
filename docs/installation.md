@@ -1,6 +1,4 @@
-# Installation
-
-## Requirements:
+## Installation Requirements:
 
 * PHP 7.1
 * Composer
