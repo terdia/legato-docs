@@ -7,6 +7,7 @@ pages:
     - Views: views.md
     - Database: database.md
     - Model: models.md
+    - Validation: validation.md
     - Sending Mail: mail.md
     - Legato Console: console.md
 theme: readthedocs
