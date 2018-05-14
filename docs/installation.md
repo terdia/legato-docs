@@ -105,19 +105,6 @@ this will start a php server which you can access at: `http://example.com:8009`
 
 ## Running Your Project Without VirtualHost
 
-if you choose to run your project without VirtualHost, for example, accessing it with http://localhost/blog/public then ensure to update your .htaccess file as follows:
-
-add RewriteBase or uncomment it if already in the .htaccess file
-
-```.htaccess
-#.htaccess file
-RewriteEngine on
-
-RewriteBase /public
-
-RewriteCond %{REQUEST_FILENAME} !-f
-
-RewriteRule . index.php [L]
-
-```
-then also remember to update css and javascript path from `/css/all.css` absolute to `css.all.css` relative.
+if you choose to run your project without VirtualHost, 
+for example, accessing it with http://localhost/blog/public 
+then ensure to update application css and javascript path from `/css/all.css` absolute to `css.all.css` relative.
