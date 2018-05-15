@@ -131,11 +131,12 @@ $firstErrors = $validator->error()->first('username');
 
 ## Available Validation Rules
 
-Legato v1.0.9 which is th latest version as at the time of this writing currently provide the following validation rules:
+The following validation rule are available starting from 
+Legato v1.0.9, there is no validation feature for older versions:
 
 ### #Unique rule
 
-This rule allows you to check if a given value exists in a specific database
+The `unique` rule allows you to check if a given value exists in a specific database
 table, specific the unique rule like so: 
 
 ```php
@@ -151,7 +152,7 @@ where username is a valid column in the users table.
 
 ### #Required rule
 
-The required rule is use to specific that a specific field cannot be empty, the example 
+The `required` rule is use to specific that a specific field cannot be empty, the example 
 below ensure that the user cannot signup unless they provide a username: 
 
 ```php
@@ -163,9 +164,11 @@ below ensure that the user cannot signup unless they provide a username:
 
 ``` 
 
-### #alphaNum rule
+### #AlphaNum rule
 
-The alphaNum rule is use to validate alphanumeric: e.g. Terdia07
+The `alphaNum` rule is use to validate alphanumeric, returns 
+true if every character in text under validation is either
+a letter or a digit: e.g. Terdia07
 
 ```php
 <?php
@@ -176,7 +179,148 @@ The alphaNum rule is use to validate alphanumeric: e.g. Terdia07
 
 ``` 
 
-**To be continued**
+### #Alpha rule
+
+The `alpha` rule is use to validate alphabetic, returns 
+true if every character in text under validation is a 
+letter from the current locale: e.g. Terdia
+
+```php
+<?php
+
+    $rules = [
+        'username' => ['alpha' => true,],
+    ];
+
+``` 
+
+### #Email rule
+
+The `email` rule is use to validate email address:
+
+```php
+<?php
+
+    $rules = [
+        'username' => ['email' => true,],
+    ];
+
+``` 
+
+### #Numeric rule
+
+The `numeric` rule is use to Check for numeric character, returns true 
+if every character in the string is a decimal digit:
+
+```php
+<?php
+
+    $rules = [
+        'username' => ['numeric' => true,],
+    ];
+
+``` 
+
+### #Min rule
+
+The `min` rule is validate the minimum length for the given value, 
+returns false if length of the value is less than rule:
+
+```php
+<?php
+
+    $rules = [
+        'username' => ['min' => 6,],
+    ];
+
+``` 
+
+### #Max rule
+
+The `max` rule is validate the maximum length for the given value, 
+returns false if length of value is greater than rule:
+
+```php
+<?php
+
+    $rules = [
+        'username' => ['max' => 6,],
+    ];
+
+``` 
+
+### #String rule
+
+The `string` rule will allow you validate fields such as fullname that can have multiple words
+ e.g. Osayawe Terry, returns false if the value under validation contains number:
+
+```php
+<?php
+
+    $rules = [
+        'fullname' => ['max' => 6, 'string' => true],
+    ];
+
+``` 
+
+### #Float rule
+
+The `float` rule is use to check if the value under validation 
+is a float e.g. 67.0, 89 is also valid:
+
+```php
+<?php
+
+    $rules = [
+        'price' => ['float' => true],
+    ];
+
+``` 
+
+### #Mixed rule
+
+The `mixed` rule will allow you valid a sentence, this is suitable for validating
+ data that might contain some special character 
+ e.g. That's the car, parked over there, it can contain letters, numbers and
+ any of the following A-Za-z0-9 .,_~-!@#\&%'\* special characters:
+
+```php
+<?php
+
+    $rules = [
+        'post_body' => ['mixed' => true,],
+    ];
+
+``` 
+
+### #IP rule
+
+The `ip` rule is use to check if the value under validation 
+is a valid IP address e.g. 127.0.0.1:
+
+```php
+<?php
+
+    $rules = [
+        'IP Address' => ['ip' => true],
+    ];
+
+``` 
+
+### #Url rule
+
+The `url` rule is use to check if the value under validation 
+is a valid URL e.g. http://docs.legatoframework.com:
+
+```php
+<?php
+
+    $rules = [
+        'Website' => ['url' => true],
+    ];
+
+``` 
+**More Validation rules will be added from time to time**
 
 
 
