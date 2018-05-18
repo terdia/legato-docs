@@ -57,7 +57,7 @@ When you define a controller route, you should also specify
 the fully qualified name of a controller and method that 
 will be executed for example for the route /contact the 
 controller is ContactController while the method to be 
-executed is save, 'App\Controllers\ContactController@save'.
+executed is save, `App\Controllers\ContactController@save`
 
 ### Defining GET Routes
 
@@ -127,5 +127,109 @@ Route::group('/admin', array(
         echo  'post with '. $id. ' deleted';
     }],
 ));
+
+```
+
+### Defining Route Resource
+If you are using Legato 1.1.0 you can use the resource method 
+to create RESTFul route
+
+```php
+<?php
+
+Route::resource('/profile', 'ProfileController');
+
+```
+
+this will generate the following routes and expected methods:
+
+```
+
+Verb 	   URI 	                     Method 	        Route Name
+
+GET 	   /profile 	             index 	            profile_index
+GET 	   /profile/create 	         showCreateForm     profile_create_form
+POST 	   /profile 	             save 	            profile_save
+GET 	   /profile/[i:id] 	         show 	            profile_display
+GET 	   /profile/[i:id]/edit 	 showEditForm 	    profile_edit_form
+POST 	   /profile/[i:id] 	         update 	        profile_update
+GET 	   /profile/[i:id]/delete 	 delete 	        profile_delete
+
+```
+
+You should then create all the methods in your controller, like so:
+
+```php
+
+<?php
+
+namespace App\Controllers;
+
+class ProfileController extends BaseController
+{
+    /**
+    * display all profiles
+    */
+    public function index()
+    {
+        //
+    }
+    
+    /**
+    * Display the form to create a 
+    */
+    public function showCreateForm()
+    {
+        //
+    } 
+    
+    /**
+    * Save the resource  
+    */
+    public function save()
+    {
+        //
+    }
+    
+    /**
+    * Display a specific resource 
+    *   
+    * @param $id
+     */
+    public function show($id)
+    {
+        //
+    }
+    
+    /**
+    * Show the form to edit the resource
+    * 
+    * @param $id
+     */
+    public function showEditForm($id)
+    {
+        
+    }
+    
+    /**
+    * Update the specified resource
+    * 
+    * @param $id
+     */
+    public function update($id)
+    {
+        
+    }
+    
+    /**
+    * Delete the specified resource
+    * 
+    * @param $id
+     */
+    public function delete($id)
+    {
+        
+    }
+}
 
 ```
