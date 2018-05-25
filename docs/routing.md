@@ -115,18 +115,15 @@ Route::patch('/profile', 'App\Controllers\ProfileController@update');
     * @param handler, fully qualified classname and method or Closure 
     * @param name (optional) must be unique for each route, 
  */
-Route::group('/admin', array(
-    ['GET', '/post', 'App\Controllers\PostController@show'],
-    
-    ['POST', '/post', 'App\Controllers\PostController@create'],
 
-    /**
-     * using closure within a route group
-     */
-    ['GET', '/post/delete/[i:id]', function($id) { 
-        echo  'post with '. $id. ' deleted';
-    }],
-));
+Route::group('/admin', function (){
+    Route::add('GET', '/dashboard', 'controller@stop', 'admin_dashboard');
+    Route::add('POST', '/users', 'controller@users', 'admin_users');
+    
+    Route::add('GET', '/user/[i:id]', function($id) { 
+             echo  'get user with Id: '. $id;
+     }, 'admin_view_user');
+});
 
 ```
 
@@ -157,7 +154,12 @@ GET 	   /profile/[i:id]/delete 	 delete 	        profile_delete
 
 ```
 
-You should then create all the methods in your controller, like so:
+You should then create all the methods in your controller, this can be done using 
+the Legato commandline tool or manually, if you choose to use the commandline tool then:
+
+`php legato add:controller ProfileController --restful`
+
+The above command will create a ProfileController controller with the content below:
 
 ```php
 
