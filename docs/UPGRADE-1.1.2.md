@@ -84,14 +84,14 @@ return [
  if you want to bind the dependency as `singleton` 
  otherwise just set it to `bind`
  
-  ### Authentication And Encryption Support
+### Authentication And Encryption Support
   
-  To take advantage of Authentication and Encryption update `app.php` as shown below:
+To take advantage of Authentication and Encryption support update `app.php` as shown below:
   
-  ```php
-  <?php
-  
-  return [
+```php
+<?php 
+
+return [
       /*
        * class that should be automatically resolved by the IOC
        * value can be: shared, bind, singleton
@@ -110,7 +110,7 @@ return [
       ]
   ];
   
-  ```
+```
  
  **Note:** complete docs for Authentication and encryption will be added soon.
 
