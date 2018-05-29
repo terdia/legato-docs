@@ -1,4 +1,4 @@
-# Welcome to the legato framework!
+# Legato framework 1.1.2
 
 Legato is a simple yet powerful PHP framework for rapid application development that is suited for small to medium scale apps and APIs.
 
@@ -20,3 +20,7 @@ you to focus on building your app.
 * You want a framework that requires nearly zero configuration.
 * You want a framework that provides multiple options for template engines or using plain PHP.
 * You prefer simple solutions.
+
+## Previous Versions
+
+1. [Docs for Version 1.1.1](https://docs.legatoframework.com/1.1.1)

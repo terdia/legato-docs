@@ -57,7 +57,7 @@ When you define a controller route, you should also specify
 the fully qualified name of a controller and method that 
 will be executed for example for the route /contact the 
 controller is ContactController while the method to be 
-executed is save, 'App\Controllers\ContactController@save'.
+executed is save, `App\Controllers\ContactController@save`
 
 ### Defining GET Routes
 
@@ -115,17 +115,123 @@ Route::patch('/profile', 'App\Controllers\ProfileController@update');
     * @param handler, fully qualified classname and method or Closure 
     * @param name (optional) must be unique for each route, 
  */
-Route::group('/admin', array(
-    ['GET', '/post', 'App\Controllers\PostController@show'],
-    
-    ['POST', '/post', 'App\Controllers\PostController@create'],
 
+Route::group('/admin', function (){
+    Route::add('GET', '/dashboard', 'controller@stop', 'admin_dashboard');
+    Route::add('POST', '/users', 'controller@users', 'admin_users');
+    
+    Route::add('GET', '/user/[i:id]', function($id) { 
+             echo  'get user with Id: '. $id;
+     }, 'admin_view_user');
+});
+
+```
+
+### Defining Route Resource
+If you are using Legato 1.1.0 you can use the resource method 
+to create RESTFul route
+
+```php
+<?php
+
+Route::resource('/profile', 'ProfileController');
+
+```
+
+this will generate the following routes and expected methods:
+
+```
+
+Verb 	   URI 	                     Method 	        Route Name
+
+GET 	   /profile 	             index 	            profile_index
+GET 	   /profile/create 	         showCreateForm     profile_create_form
+POST 	   /profile 	             save 	            profile_save
+GET 	   /profile/[i:id] 	         show 	            profile_display
+GET 	   /profile/[i:id]/edit 	 showEditForm 	    profile_edit_form
+POST 	   /profile/[i:id] 	         update 	        profile_update
+GET 	   /profile/[i:id]/delete 	 delete 	        profile_delete
+
+```
+
+You should then create all the methods in your controller, this can be done using 
+the Legato commandline tool or manually, if you choose to use the commandline tool then:
+
+`php legato add:controller ProfileController --restful`
+
+The above command will create a ProfileController controller with the content below:
+
+```php
+
+<?php
+
+namespace App\Controllers;
+
+class ProfileController extends BaseController
+{
     /**
-     * using closure within a route group
+    * display all profiles
+    */
+    public function index()
+    {
+        //
+    }
+    
+    /**
+    * Display the form to create a 
+    */
+    public function showCreateForm()
+    {
+        //
+    } 
+    
+    /**
+    * Save the resource  
+    */
+    public function save()
+    {
+        //
+    }
+    
+    /**
+    * Display a specific resource 
+    *   
+    * @param $id
      */
-    ['GET', '/post/delete/[i:id]', function($id) { 
-        echo  'post with '. $id. ' deleted';
-    }],
-));
+    public function show($id)
+    {
+        //
+    }
+    
+    /**
+    * Show the form to edit the resource
+    * 
+    * @param $id
+     */
+    public function showEditForm($id)
+    {
+        
+    }
+    
+    /**
+    * Update the specified resource
+    * 
+    * @param $id
+     */
+    public function update($id)
+    {
+        
+    }
+    
+    /**
+    * Delete the specified resource
+    * 
+    * @param $id
+     */
+    public function delete($id)
+    {
+        
+    }
+}
 
 ```

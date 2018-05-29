@@ -10,4 +10,5 @@ pages:
     - Validation: validation.md
     - Sending Mail: mail.md
     - Legato Console: console.md
+    - Upgrade From 1.1.1 to 1.1.2: UPGRADE-1.1.2.md
 theme: readthedocs

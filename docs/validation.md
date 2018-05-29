@@ -320,7 +320,7 @@ is a valid URL e.g. http://docs.legatoframework.com:
     ];
 
 ``` 
-**More Validation rules will be added from time to time**
+**More Validation rules will be added from time to time.**
 
 
 

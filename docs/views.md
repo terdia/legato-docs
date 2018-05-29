@@ -166,6 +166,32 @@ then inside the view, we can reference it like so:
 
 ```
 
+### Registering Twig Extensions
+
+If your application require some twig extensions then you can register them by updating the `extensions` 
+array in the file `config/twig.php` like so:
+
+```php
+<?php
+
+return [
+    'twig_global' => [
+        'app_name' => config('APP_NAME', 'Legato Framework'),
+        ...
+    ],
+    'extensions' => [
+        'global' => \Legato\Framework\TwigGlobal::class,
+        'debug' => \Twig_Extension_Debug::class,
+        'somekey_irrelevant' => 'Your extension class',
+        ...
+    ],
+];
+```
+
+By default the dump extension will be registered for you if you set the environment
+variable `APP_ENV` to true in your `.env` file
+
+
 
 
 
