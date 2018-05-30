@@ -157,7 +157,7 @@ GET 	   /profile/[i:id]/delete 	 delete 	        profile_delete
 You should then create all the methods in your controller, this can be done using 
 the Legato commandline tool or manually, if you choose to use the commandline tool then:
 
-`php legato add:controller ProfileController --restful`
+`php legato add:controller ProfileController --restful=true`
 
 The above command will create a ProfileController controller with the content below:
 
